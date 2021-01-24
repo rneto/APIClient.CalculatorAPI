@@ -50,7 +50,7 @@ namespace APIClient.CalculatorAPI.v2
                 this.ThrowException(responseMessage.StatusCode, response);
             }
 
-            return new OperationResult(int.Parse(response));
+            return new OperationResult((int)decimal.Parse(response, System.Globalization.CultureInfo.InvariantCulture));
         }
 
         private void Initilize(string url, int timeout = 90)
