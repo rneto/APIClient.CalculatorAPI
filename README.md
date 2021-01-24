@@ -33,14 +33,15 @@ Will consume a calculator REST API service: https://api.mathjs.org/
 - Generate the _common/Serializer.cs_ class.
 - Generate the _v1/Client.cs_ class.
 
-### Project test creation
-
-- Create a new project based on the _MSTest Test Project (.NET Core)_ template and set the project name to _APIClient.CalculatorAPI.Tests_.
-- Add the _v1Tests.cs_ class to the test project.
-
 ### Client version 2 creation
 
 - Add _v2_ folder to the _APIClient.CalculatorAPI_ project.
 - Generate the _v2/Client.cs_ class.
 - Add _v2/Models_ folder to the _APIClient.CalculatorAPI_ project.
-- Add __ models
+- Add _OperationResult_ and _OperationRequest_ classes for data transfer.
+- Add _Add_, _Divide_, _Multiply_ and _Subtract_ model classes.
+
+### Project test creation
+
+- Create a new project based on the _MSTest Test Project (.NET Core)_ template and set the project name to _APIClient.CalculatorAPI.Tests_.
+- Add the _v1Tests.cs_ and _v2Tests.cs_ classes to the test project.
