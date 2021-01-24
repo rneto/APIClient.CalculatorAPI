@@ -7,10 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "APIClient.CalculatorAPI", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{B0DA80BB-75B7-4FD6-853F-499FD3399646}"
 	ProjectSection(SolutionItems) = preProject
+		Documents\DNE-Online-soapui-project.xml = Documents\DNE-Online-soapui-project.xml
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APIClient.CalculatorAPI.Tests", "APIClient.CalculatorAPI.Tests\APIClient.CalculatorAPI.Tests.csproj", "{6C78E730-9EFB-48B5-A1FB-DEDE70D06D09}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "APIClient.CalculatorAPI.Tests", "APIClient.CalculatorAPI.Tests\APIClient.CalculatorAPI.Tests.csproj", "{6C78E730-9EFB-48B5-A1FB-DEDE70D06D09}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
