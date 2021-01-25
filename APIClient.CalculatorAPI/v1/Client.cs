@@ -86,7 +86,7 @@ namespace APIClient.CalculatorAPI.v1
             string response = responseMessage.Content.ReadAsStringAsync().Result;
             if (responseMessage.StatusCode != HttpStatusCode.OK)
             {
-                this.ThrowException(responseMessage.StatusCode, response);
+                this.ThrowException(responseMessage.StatusCode.ToString(), response);
             }
 
             return response;
@@ -104,12 +104,30 @@ namespace APIClient.CalculatorAPI.v1
                 return null;
             }
 
+            this.CheckSOAPFault(body);
+
             return body.Elements().FirstOrDefault();
         }
 
-        private void ThrowException(HttpStatusCode statusCode, string response)
+
+        private void CheckSOAPFault(XElement body)
         {
-            throw new Exception($"Error {statusCode}: {response}");
+            XNamespace xNamespace = XNamespace.Get("http://schemas.xmlsoap.org/soap/envelope/");
+
+            if (body != null && body.HasElements && body.Element(xNamespace + "Fault") != null)
+            {
+                XElement fault = body.Element(xNamespace + "Fault");
+
+                string faultCode = fault.Element("faultcode")?.Value ?? string.Empty;
+                string faultString = fault.Element("faultstring")?.Value ?? string.Empty;
+
+                this.ThrowException(faultCode, faultString);
+            }
+        }
+
+        private void ThrowException(string code, string message)
+        {
+            throw new Exception($"Error {code}: {message}");
         }
     }
 }
